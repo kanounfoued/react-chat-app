@@ -18,17 +18,17 @@ const Navbar = (props) => {
       )}
     >
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          className={[classes.menuButton, ...(open ? [classes.hide] : [])].join(
-            " "
-          )}
-        >
-          <MenuIcon />
-        </IconButton>
+        {!open ? (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={classes.menuButton}
+          >
+            <MenuIcon />
+          </IconButton>
+        ) : null}
         <Typography variant="h6" noWrap>
           Navbar
         </Typography>
