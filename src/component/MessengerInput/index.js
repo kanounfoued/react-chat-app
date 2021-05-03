@@ -10,7 +10,7 @@ const MessengerInput = (props) => {
   const classes = useStyles();
 
   return (
-    <Grid container>
+    <Grid data-testid="messenger-input-container" container>
       <Grid
         container
         justify="space-between"
