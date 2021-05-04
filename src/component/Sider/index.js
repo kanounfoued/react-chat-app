@@ -15,6 +15,7 @@ const Sider = (props) => {
 
   return (
     <Drawer
+      data-testid="sider-bar"
       variant="permanent"
       className={[
         classes.drawer,
@@ -26,7 +27,7 @@ const Sider = (props) => {
         ),
       }}
     >
-      <div className={classes.toolbar}>
+      <div data-testid="toolbar" className={classes.toolbar}>
         <IconButton onClick={handleDrawerClose}>
           {theme.direction === "rtl" ? (
             <ChevronRightIcon />
