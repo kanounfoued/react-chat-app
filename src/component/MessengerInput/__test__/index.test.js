@@ -11,7 +11,6 @@ test("Testing messenger input", () => {
   };
 
   render(<MessengerInput {...props} />);
-  screen.debug();
 
   expect(screen.getByTestId(/messenger-input-container/i)).toBeInTheDocument();
 
@@ -19,6 +18,18 @@ test("Testing messenger input", () => {
   expect(screen.getByRole("button")).toBeInTheDocument();
 
   userEvent.type(screen.getByRole("textbox"), props.value);
+});
 
-  //expect(screen.getByRole("textbox").value).toBe(props.value);
+// testing The send button.
+test("Testing messenger Input on send message ", () => {
+  const props = {
+    value: "kanoun",
+    onChange: () => {},
+    label: "Type here ...",
+  };
+
+  render(<MessengerInput {...props} />);
+
+  // Define what should the button do
+  // const sendButton = screen.getByRole("button");
 });
