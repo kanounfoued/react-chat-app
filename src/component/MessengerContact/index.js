@@ -26,7 +26,10 @@ const MessengerContact = (props) => {
         justify="center"
         alignItems="center"
       >
-        <AccountCircleIcon className={classes.noContactIcon} />
+        <AccountCircleIcon
+          data-testid="no-contact-icon"
+          className={classes.noContactIcon}
+        />
         <Typography className={classes.noContactMessage} variant="h4">
           No Contacts
         </Typography>
