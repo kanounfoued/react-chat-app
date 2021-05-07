@@ -36,7 +36,7 @@ const Sider = (props) => {
           )}
         </IconButton>
       </div>
-      <MessengerContact />
+      <MessengerContact isSiderOpen={open} />
     </Drawer>
   );
 };
