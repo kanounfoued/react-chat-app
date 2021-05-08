@@ -38,7 +38,7 @@ const MessengerContact = (props) => {
   }
 
   return (
-    <List>
+    <List data-testid="list-of-contacts">
       {contacts.map((contact) => (
         <MessengerContactItem contact={contact} key={contact.id} />
       ))}
