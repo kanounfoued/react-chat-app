@@ -12,7 +12,11 @@ const MessengerContactItem = (props) => {
   const classes = useStyles();
 
   return (
-    <Tooltip title={`${name} ${familyName}`} placement="right">
+    <Tooltip
+      data-testid="tooltip-contact-item"
+      title={`${name} ${familyName}`}
+      placement="right"
+    >
       <ListItem button>
         <ListItemIcon>
           <Avatar className={classes.Avatar} src={picture} alt="user-picture" />
