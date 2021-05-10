@@ -1,7 +1,12 @@
 import * as React from "react";
-import { screen, render, fireEvent, findByRole } from "@testing-library/react";
+import {
+  screen,
+  render,
+  fireEvent,
+  waitForElementToBeRemoved,
+  findByRole,
+} from "@testing-library/react";
 import MessengerContactItem from "../index";
-import userEvent from "@testing-library/user-event";
 import image3 from "../../../assets/contact/3.jpg";
 
 test("Testing MessengerContactItem component", () => {
@@ -19,8 +24,7 @@ test("Testing MessengerContactItem component", () => {
   expect(screen.getByText(/amine samrani/i)).toBeInTheDocument();
 });
 
-// need to add another test for onHover effect on the item.
-test("Testing MessengerContactItem component, onHover", async () => {
+test("Testing MessengerContactItem component, onMouseOver/onMouseOut", async () => {
   const props = {
     contact: {
       id: "sufnknvxlqs",
@@ -31,12 +35,18 @@ test("Testing MessengerContactItem component, onHover", async () => {
   };
   render(<MessengerContactItem {...props} />);
 
+  // test onMouseOver event
   fireEvent.mouseOver(screen.getByTestId("tooltip-contact-item"));
 
   const tooltip = await findByRole(document.body, "tooltip");
-  console.log(tooltip);
+
   expect(tooltip).toBeInTheDocument();
   expect(tooltip.textContent).toBe(
     `${props.contact.name} ${props.contact.familyName}`
   );
+
+  // test onMouseOut event
+  fireEvent.mouseOut(screen.getByTestId("tooltip-contact-item"));
+  await waitForElementToBeRemoved(() => screen.queryByRole("tooltip"));
+  expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
 });
