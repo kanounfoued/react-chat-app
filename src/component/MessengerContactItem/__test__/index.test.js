@@ -13,9 +13,9 @@ test("Testing MessengerContactItem component", () => {
   const props = {
     contact: {
       id: "sufnknvxlqs",
-      name: "amine",
-      familyName: "samrani",
-      picture: image3,
+      first_name: "amine",
+      last_name: "samrani",
+      avatar: image3,
     },
   };
   render(<MessengerContactItem {...props} />);
@@ -28,9 +28,9 @@ test("Testing MessengerContactItem component, onMouseOver/onMouseOut", async () 
   const props = {
     contact: {
       id: "sufnknvxlqs",
-      name: "amine",
-      familyName: "samrani",
-      picture: image3,
+      first_name: "amine",
+      last_name: "samrani",
+      avatar: image3,
     },
   };
   render(<MessengerContactItem {...props} />);
@@ -42,7 +42,7 @@ test("Testing MessengerContactItem component, onMouseOver/onMouseOut", async () 
 
   expect(tooltip).toBeInTheDocument();
   expect(tooltip.textContent).toBe(
-    `${props.contact.name} ${props.contact.familyName}`
+    `${props.contact.first_name} ${props.contact.last_name}`
   );
 
   // test onMouseOut event
