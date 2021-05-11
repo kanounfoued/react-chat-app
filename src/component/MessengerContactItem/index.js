@@ -8,23 +8,23 @@ import useStyles from "./style";
 
 const MessengerContactItem = (props) => {
   const { contact } = props;
-  const { name, familyName, picture } = contact;
+  const { first_name, last_name, avatar } = contact;
   const classes = useStyles();
 
   return (
     <Tooltip
       data-testid="tooltip-contact-item"
-      title={`${name} ${familyName}`}
+      title={`${first_name} ${last_name}`}
       placement="right"
     >
       <ListItem button>
         <ListItemIcon>
-          <Avatar className={classes.Avatar} src={picture} alt="user-picture" />
+          <Avatar className={classes.Avatar} src={avatar} alt="user-picture" />
         </ListItemIcon>
 
         <ListItemText
           className={classes.ListItemText}
-          primary={`${name} ${familyName}`}
+          primary={`${first_name} ${last_name}`}
         />
       </ListItem>
     </Tooltip>
